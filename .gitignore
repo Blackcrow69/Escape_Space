@@ -4,6 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/Julai_models/
+Assets/Julai_models EXCLUDED~/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory

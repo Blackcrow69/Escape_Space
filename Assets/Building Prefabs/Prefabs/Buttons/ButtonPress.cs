@@ -39,8 +39,8 @@ public class ButtonPress : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E))
         {
             animator.SetTrigger("ButtonTrigger"); //player animation
-            Invoke("GravityChanger",4f);  
-            Invoke("OpenDoorAnimation", 0.1f);
+            Invoke("GravityChanger",2f);  
+            Invoke("OpenDoorAnimation", 2f);
 
         }
     }
@@ -71,7 +71,7 @@ public class ButtonPress : MonoBehaviour {
     {
             if (Physics.gravity.y >= 0f)
             {
-                Physics.gravity = new Vector3(0f, -1.5f, 0f);
+                Physics.gravity = new Vector3(0f, -2f, 0f);
                 //noGravity = false;
                 audioSource.clip = gravityEnabled;
                 audioSource.Play();

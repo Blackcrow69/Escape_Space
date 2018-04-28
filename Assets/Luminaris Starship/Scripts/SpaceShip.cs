@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpaceShip : MonoBehaviour {
 
     AudioSource audioSource;
+    LevelManager levelmanager;
 
 
 	// Use this for initialization
@@ -19,5 +20,10 @@ public class SpaceShip : MonoBehaviour {
     public void TakeOffSound()
     {
         audioSource.Play();
+    }
+
+    public void Win()
+    {
+        levelmanager.LoadNextLevel();
     }
 }

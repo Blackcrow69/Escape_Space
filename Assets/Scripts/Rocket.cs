@@ -43,15 +43,15 @@ public class Rocket : MonoBehaviour {
 
     private void Thrust()
     {
-        if (Input.GetKeyDown(KeyCode.Z)) // || Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Z)) // || Input.GetKeyDown(KeyCode.S))
         {
             audioSource.Play();
         }
-        if (Input.GetKeyUp(KeyCode.Z) )//|| Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.Z))//|| Input.GetKeyUp(KeyCode.S))
         {
             audioSource.Stop();
         }
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Z))
         {
             rigidBody.AddRelativeForce(Vector3.up * mainThrust);
 
@@ -70,13 +70,15 @@ public class Rocket : MonoBehaviour {
 
         
         float rotationSpeed = rcsThrust * Time.deltaTime;
+        float zTrans = transform.localRotation.eulerAngles.z;
 
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
         {
+            
             if (!rotLeft)
             {
-                transform.localRotation = Quaternion.Euler(0, 180, transform.rotation.z);
+                transform.localRotation = Quaternion.Euler(0, 180, 0-zTrans);
                 rotRight = false;
                 rotLeft = true;
             }
@@ -86,7 +88,7 @@ public class Rocket : MonoBehaviour {
         {
             if (!rotRight)
             {
-                transform.localRotation = Quaternion.Euler(0, 0, transform.rotation.z);
+                transform.localRotation = Quaternion.Euler(0, 0, 0-zTrans);
                 rotRight = true;
                 rotLeft = false;
             }

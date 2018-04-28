@@ -107,7 +107,7 @@ public class DoorAirDock : MonoBehaviour {
     {
         if (Physics.gravity.y >= 0f)
         {
-            Physics.gravity = new Vector3(0f, -1.5f, 0f);
+            Physics.gravity = new Vector3(0f, -2f, 0f);
             //noGravity = false;
             audioSource.clip = gravityEnabled;
             audioSource.Play();
